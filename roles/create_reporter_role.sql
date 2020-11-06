@@ -1,0 +1,14 @@
+-- Role: reporter
+DROP ROLE IF EXISTS reporter;
+
+CREATE ROLE reporter WITH
+  NOLOGIN
+  NOSUPERUSER
+  INHERIT
+  NOCREATEDB
+  NOCREATEROLE
+  NOREPLICATION;
+  
+  
+GRANT SELECT ON TABLE transactions TO reporter;
+

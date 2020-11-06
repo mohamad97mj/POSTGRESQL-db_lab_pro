@@ -1,0 +1,15 @@
+-- Role: exporter
+DROP ROLE IF EXISTS exporter;
+
+CREATE ROLE exporter WITH
+  NOLOGIN
+  NOSUPERUSER
+  INHERIT
+  NOCREATEDB
+  NOCREATEROLE
+  NOREPLICATION;
+  
+  
+GRANT SELECT, UPDATE ON TABLE accounts TO exporter;
+GRANT SELECT, UPDATE ON TABLE subcontracts TO exporter;
+

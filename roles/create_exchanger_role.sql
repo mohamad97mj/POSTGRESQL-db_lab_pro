@@ -1,0 +1,16 @@
+-- Role: exchanger
+DROP ROLE IF EXISTS exchanger;
+
+CREATE ROLE exchanger WITH
+  NOLOGIN
+  NOSUPERUSER
+  INHERIT
+  NOCREATEDB
+  NOCREATEROLE
+  NOREPLICATION;
+  
+  
+GRANT SELECT, UPDATE ON TABLE accounts TO exchanger;
+GRANT SELECT, UPDATE ON TABLE contracts TO exchanger;
+GRANT SELECT, INSERT, UPDATE ON TABLE subcontracts TO exchanger;
+
